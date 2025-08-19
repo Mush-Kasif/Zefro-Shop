@@ -1,0 +1,953 @@
+<index.html><html lang="fa" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>🌟 Zefro Shop — اینترنت VIP با V2Ray 🌟</title><meta name="description" content="سرعت، امنیت و پایداری یکجا. مخصوص گیم، استریم و استفاده روزمره!"><meta name="keywords" content="V2Ray, VPN, اینترنت آزاد, گیمینگ, استریم, فیلترشکن"><script src="https://cdn.tailwindcss.com"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style>
+/*
+        ========================================
+        🎨 EDIT GUIDE - راهنمای ویرایش کامل
+        ========================================
+        
+        🎯 1. تغییر رنگ‌ها (Colors):
+           --primary: #A3E635 (لایم سبز اصلی)
+           --primary-dark: #84CC16 (لایم تیره)
+           --accent: #22d3ee (آبی فیروزه‌ای)
+           --bg-dark: #0f172a (پس‌زمینه تیره)
+           
+        🔗 2. تغییر لینک‌ها (Links):
+           DISCORD_INVITE_URL → لینک دعوت دیسکورد
+           TELEGRAM_BOT_URL → لینک ربات تلگرام
+           
+        💰 3. تغییر قیمت‌ها (Pricing):
+           بخش PRICING PLANS را پیدا کنید
+           قیمت‌ها در data-price و متن کارت‌ها
+           
+        🌐 4. تغییر وب‌هوک‌ها (Webhooks):
+           DISCORD_WEBHOOK_URL → وب‌هوک دیسکورد
+           TELEGRAM_BOT_TOKEN → توکن ربات تلگرام
+           TELEGRAM_CHAT_ID → شناسه چت تلگرام
+           
+        📝 5. تغییر محتوا (Content):
+           هر بخش با کامنت BEGIN/END مشخص شده
+           متن‌های فارسی در تگ‌های HTML قابل ویرایش
+
+        ========================================
+        🌐 HOSTING GUIDE - راهنمای آنلاین کردن
+        ========================================
+        
+        📁 فایل‌های مورد نیاز:
+           - index.html (همین فایل)
+           - هیچ فایل اضافی نیاز نیست!
+           
+        🚀 گزینه‌های هاستینگ رایگان:
+           1. GitHub Pages (پیشنهادی)
+           2. Netlify 
+           3. Vercel
+           4. Firebase Hosting
+           
+        🔧 تنظیمات قبل از آپلود:
+           - لینک‌های دیسکورد و تلگرام
+           - تنظیم وب‌هوک‌ها
+           - بررسی قیمت‌ها
+           
+        📋 مراحل آپلود:
+           1. ساخت اکانت در سرویس انتخابی
+           2. آپلود فایل index.html
+           3. تست عملکرد سایت
+           4. اشتراک‌گذاری لینک
+        */
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap');
+ :root {
+    /* 🎨 رنگ‌های اصلی - Main Colors */
+    --primary: #A3E635;
+    --primary-dark: #84CC16;
+    --primary-light: #bef264;
+    --accent: #22d3ee;
+    --accent-dark: #0891b2;
+    --bg-dark: #0f172a;
+    --bg-darker: #020617;
+    --bg-card: rgba(15, 23, 42, 0.8);
+    --text-light: #f8fafc;
+    --text-gray: #94a3b8;
+    --glass-bg: rgba(163, 230, 53, 0.08);
+    --glass-border: rgba(163, 230, 53, 0.2);
+    --glow-primary: rgba(163, 230, 53, 0.4);
+    --glow-accent: rgba(34, 211, 238, 0.3);
+    /* 📝 فونت‌ها - Fonts */
+    --font-primary: 'Vazirmatn', sans-serif;
+    /* 📏 فاصله‌ها - Spacing */
+    --section-padding: 6rem 0;
+    --card-padding: 2.5rem;
+    --border-radius: 1.5rem;
+    --border-radius-sm: 0.75rem;
+}
+
+* {
+    font-family: var(--font-primary);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+    color: var(--text-light);
+    overflow-x: hidden;
+    position: relative;
+}
+
+
+/* 🌌 Background Effects */
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 80%, var(--glow-primary) 0%, transparent 50%), radial-gradient(circle at 80% 20%, var(--glow-accent) 0%, transparent 50%), radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* ✨ Glassmorphism Enhanced */
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(163, 230, 53, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.glass-card:hover {
+    background: rgba(163, 230, 53, 0.12);
+    border-color: var(--primary);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(163, 230, 53, 0.2), 0 0 0 1px rgba(163, 230, 53, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-card:hover::before {
+    left: 100%;
+}
+
+
+/* 🔥 Enhanced Buttons */
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--bg-dark);
+    font-weight: 700;
+    padding: 1.25rem 2.5rem;
+    border-radius: var(--border-radius);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(163, 230, 53, 0.3);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(163, 230, 53, 0.5);
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-secondary {
+    background: rgba(163, 230, 53, 0.1);
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    font-weight: 600;
+    padding: 1.25rem 2.5rem;
+    border-radius: var(--border-radius);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-secondary:hover {
+    background: var(--primary);
+    color: var(--bg-dark);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(163, 230, 53, 0.4);
+}
+
+
+/* 🎭 Advanced Animations */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* 🌈 Gradient Text Enhanced */
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary), var(--accent), #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+
+/* 💎 Pricing Card Special Effects */
+
+.pricing-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pricing-card.featured {
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 30px rgba(163, 230, 53, 0.3);
+    transform: scale(1.05);
+}
+
+.pricing-card.featured::after {
+    content: '⭐ محبوب';
+    position: absolute;
+    top: -1px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--bg-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+
+/* 🎪 FAQ Accordion Enhanced */
+
+.faq-item {
+    border-bottom: 1px solid rgba(163, 230, 53, 0.2);
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    background: rgba(163, 230, 53, 0.05);
+}
+
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-content.active {
+    max-height: 300px;
+}
+
+
+/* 🌊 Floating Animations */
+
+.floating {
+    animation: floating 4s ease-in-out infinite;
+}
+
+.floating-delayed {
+    animation: floating 4s ease-in-out infinite;
+    animation-delay: 2s;
+}
+
+.floating-slow {
+    animation: floating 6s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+@keyframes floating {
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-15px) rotate(1deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-20px) rotate(-1deg);
+    }
+}
+
+
+/* 🎯 Pulse Animation */
+
+.pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(163, 230, 53, 0.3);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(163, 230, 53, 0.6);
+        transform: scale(1.02);
+    }
+}
+
+
+/* 🌟 Particle Effects */
+
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 50%;
+    animation: particle-float 8s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes particle-float {
+    0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-100px) translateX(100px);
+        opacity: 0;
+    }
+}
+
+
+/* 📱 Responsive Enhancements */
+
+@media (max-width: 768px) {
+     :root {
+        --section-padding: 4rem 0;
+        --card-padding: 1.5rem;
+    }
+    .glass-card:hover {
+        transform: translateY(-4px) scale(1.01);
+    }
+    .btn-primary,
+    .btn-secondary {
+        padding: 1rem 2rem;
+    }
+}
+
+
+/* 🎨 Custom Scrollbar Enhanced */
+
+ ::-webkit-scrollbar {
+    width: 12px;
+}
+
+ ::-webkit-scrollbar-track {
+    background: var(--bg-darker);
+    border-radius: 6px;
+}
+
+ ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 6px;
+    border: 2px solid var(--bg-darker);
+}
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+}
+
+
+/* 🔮 Special Effects */
+
+.neon-glow {
+    text-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary), 0 0 15px var(--primary), 0 0 20px var(--primary);
+}
+
+.border-glow {
+    border: 1px solid var(--primary);
+    box-shadow: 0 0 10px rgba(163, 230, 53, 0.3), inset 0 0 10px rgba(163, 230, 53, 0.1);
+}
+
+
+/* 🎪 Loading Animation */
+
+.loading-dots {
+    display: inline-block;
+}
+
+.loading-dots::after {
+    content: '';
+    animation: loading-dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes loading-dots {
+    0%,
+    20% {
+        content: '';
+    }
+    40% {
+        content: '.';
+    }
+    60% {
+        content: '..';
+    }
+    80%,
+    100% {
+        content: '...';
+    }
+}
+
+</style></head><body><!-- 🌌 Particle Background --><div class="particles" id="particles"></div><!-- BEGIN HEADER SECTION --><!-- 📝 تغییر لوگو و منو: متن‌های داخل nav را ویرایش کنید --><header class="fixed top-0 w-full z-50 glass-card border-0 border-b border-lime-400/20"><nav class="container mx-auto px-6 py-4"><div class="flex justify-between items-center"><div class="text-2xl font-bold gradient-text neon-glow">🌟 Zefro Shop </div><div class="hidden md:flex space-x-8 space-x-reverse"><a href="#home" class="hover:text-lime-400 transition-all duration-300 hover:neon-glow">خانه</a><a href="#pricing" class="hover:text-lime-400 transition-all duration-300 hover:neon-glow">قیمت‌ها</a><a href="#features" class="hover:text-lime-400 transition-all duration-300 hover:neon-glow">ویژگی‌ها</a><a href="#faq" class="hover:text-lime-400 transition-all duration-300 hover:neon-glow">سوالات</a><a href="#contact" class="hover:text-lime-400 transition-all duration-300 hover:neon-glow">تماس</a></div><button id="mobile-menu-btn" class="md:hidden text-lime-400 text-xl hover:scale-110 transition-transform"><i class="fas fa-bars"></i></button></div><!-- Mobile Menu Enhanced --><div id="mobile-menu" class="md:hidden mt-4 hidden"><div class="glass-card p-4 mt-4"><div class="flex flex-col space-y-4"><a href="#home" class="hover:text-lime-400 transition-colors py-2 border-b border-lime-400/20">خانه</a><a href="#pricing" class="hover:text-lime-400 transition-colors py-2 border-b border-lime-400/20">قیمت‌ها</a><a href="#features" class="hover:text-lime-400 transition-colors py-2 border-b border-lime-400/20">ویژگی‌ها</a><a href="#faq" class="hover:text-lime-400 transition-colors py-2 border-b border-lime-400/20">سوالات</a><a href="#contact" class="hover:text-lime-400 transition-colors py-2">تماس</a></div></div></div></nav></header><!-- END HEADER SECTION --><!-- BEGIN HERO SECTION --><!-- 🎯 تغییر متن اصلی: عنوان و زیرعنوان را در h1 و p ویرایش کنید --><section id="home" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden"><!-- Enhanced Background Animation --><div class="absolute inset-0 opacity-30"><div class="floating absolute top-20 right-20 w-32 h-32 bg-lime-400 rounded-full blur-xl"></div><div class="floating-delayed absolute bottom-32 left-32 w-48 h-48 bg-cyan-400 rounded-full blur-2xl"></div><div class="floating-slow absolute top-1/2 left-1/4 w-24 h-24 bg-purple-400 rounded-full blur-xl"></div><div class="floating absolute top-1/3 right-1/3 w-20 h-20 bg-pink-400 rounded-full blur-lg"></div><div class="floating-delayed absolute bottom-1/4 right-1/4 w-36 h-36 bg-indigo-400 rounded-full blur-2xl"></div></div><div class="container mx-auto px-6 text-center relative z-10"><div class="max-w-5xl mx-auto"><h1 class="text-6xl md:text-8xl font-bold mb-8 fade-in gradient-text neon-glow">🌟 Zefro Shop — اینترنت VIP با V2Ray 🌟 </h1><p class="text-2xl md:text-3xl text-gray-300 mb-12 fade-in leading-relaxed" style="animation-delay: 0.2s;">سرعت، امنیت و پایداری یکجا. 🚀 مخصوص گیم، استریم و استفاده روزمره! </p><div class="flex flex-col sm:flex-row gap-8 justify-center items-center fade-in" style="animation-delay: 0.4s;"><!-- 🔗 تغییر لینک دیسکورد: DISCORD_INVITE_URL را با لینک واقعی جایگزین کنید --><button onclick="window.open('DISCORD_INVITE_URL', '_blank')" class="btn-primary text-xl pulse-glow"><i class="fab fa-discord ml-3 text-2xl"></i>سفارش در دیسکورد </button><!-- 🔗 تغییر لینک تلگرام: TELEGRAM_BOT_URL را با لینک واقعی جایگزین کنید --><button onclick="window.open('TELEGRAM_BOT_URL', '_blank')" class="btn-secondary text-xl"><i class="fab fa-telegram ml-3 text-2xl"></i>ارتباط با ما </button></div><!-- Enhanced Trust Indicators --><div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 fade-in" style="animation-delay: 0.6s;"><div class="glass-card p-6 text-center"><div class="text-3xl mb-2">🛡️</div><div class="text-lime-400 font-bold text-lg">امنیت کامل</div><div class="text-sm text-gray-400">رمزگذاری قوی</div></div><div class="glass-card p-6 text-center"><div class="text-3xl mb-2">⚡</div><div class="text-lime-400 font-bold text-lg">سرعت بالا</div><div class="text-sm text-gray-400">پینگ پایین</div></div><div class="glass-card p-6 text-center"><div class="text-3xl mb-2">🕒</div><div class="text-lime-400 font-bold text-lg">پشتیبانی ۲۴/۷</div><div class="text-sm text-gray-400">همیشه در دسترس</div></div><div class="glass-card p-6 text-center"><div class="text-3xl mb-2">👥</div><div class="text-lime-400 font-bold text-lg">+۱۰۰۰ کاربر</div><div class="text-sm text-gray-400">راضی و خوشحال</div></div></div></div></div></section><!-- END HERO SECTION --><!-- BEGIN PRICING PLANS SECTION --><!-- 💰 تغییر قیمت‌ها: data-price و متن‌های قیمت را ویرایش کنید --><section id="pricing" class="py-24 relative"><div class="container mx-auto px-6"><div class="text-center mb-20 fade-in"><h2 class="text-5xl md:text-6xl font-bold mb-8 gradient-text neon-glow">پلن‌های اشتراک </h2><p class="text-2xl text-gray-300">بهترین قیمت‌ها برای بهترین کیفیت ✨ </p></div><!-- 1 Month Plans --><div class="mb-20 fade-in"><div class="text-center mb-12"><h3 class="text-3xl font-bold text-lime-400 mb-4">🔰 پلن‌های ۱ ماهه</h3><p class="text-gray-400">مناسب برای تست و استفاده کوتاه مدت</p></div><div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6"><div class="glass-card pricing-card p-6 text-center border-glow" data-price="20000"><div class="text-4xl mb-4">📱</div><h4 class="text-xl font-bold mb-2 text-lime-400">۱۰ گیگابایت</h4><div class="text-3xl font-bold text-white mb-4">۲۰ <span class="text-lg">هزار تومان</span></div><div class="text-sm text-gray-400 mb-6">مناسب استفاده سبک</div><button class="btn-primary w-full" onclick="selectPlan('1ماهه 10GB', '20000')">انتخاب پلن</button></div><div class="glass-card pricing-card p-6 text-center border-glow" data-price="35000"><div class="text-4xl mb-4">💻</div><h4 class="text-xl font-bold mb-2 text-lime-400">۲۰ گیگابایت</h4><div class="text-3xl font-bold text-white mb-4">۳۵ <span class="text-lg">هزار تومان</span></div><div class="text-sm text-gray-400 mb-6">مناسب کار روزانه</div><button class="btn-primary w-full" onclick="selectPlan('1ماهه 20GB', '35000')">انتخاب پلن</button></div><div class="glass-card pricing-card p-6 text-center border-glow featured" data-price="45000"><div class="text-4xl mb-4">🎮</div><h4 class="text-xl font-bold mb-2 text-lime-400">۳۰ گیگابایت</h4><div class="text-3xl font-bold text-white mb-4">۴۵ <span class="text-lg">هزار تومان</span></div><div class="text-sm text-gray-400 mb-6">مناسب گیمینگ</div><button class="btn-primary w-full" onclick="selectPlan('1ماهه 30GB', '45000')">انتخاب پلن</button></div><div class="glass-card pricing-card p-6 text-center border-glow" data-price="65000"><div class="text-4xl mb-4">🚀</div><h4 class="text-xl font-bold mb-2 text-lime-400">۵۰ گیگابایت</h4><div class="text-3xl font-bold text-white mb-4">۶۵ <span class="text-lg">هزار تومان</span></div><div class="text-sm text-gray-400 mb-6">استفاده متوسط</div><button class="btn-primary w-full" onclick="selectPlan('1ماهه 50GB', '65000')">انتخاب پلن</button></div><div class="glass-card pricing-card p-6 text-center border-glow" data-price="90000"><div class="text-4xl mb-4">⭐</div><h4 class="text-xl font-bold mb-2 text-lime-400">۷۵ گیگابایت</h4><div class="text-3xl font-bold text-white mb-4">۹۰ <span class="text-lg">هزار تومان</span></div><div class="text-sm text-gray-400 mb-6">استفاده سنگین</div><button class="btn-primary w-full" onclick="selectPlan('1ماهه 75GB', '90000')">انتخاب پلن</button></div><div class="glass-card pricing-card p-6 text-center border-glow" data-price="110000"><div class="text-4xl mb-4">💎</div><h4 class="text-xl font-bold mb-2 text-lime-400">۱۰۰ گیگابایت</h4><div class="text-3xl font-bold text-white mb-4">۱۱۰ <span class="text-lg">هزار تومان</span></div><div class="text-sm text-gray-400 mb-6">حداکثر استفاده</div><button class="btn-primary w-full" onclick="selectPlan('1ماهه 100GB', '110000')">انتخاب پلن</button></div></div></div><!-- 2 Month Plans --><div class="mb-20 fade-in"><div class="text-center mb-12"><h3 class="text-3xl font-bold text-lime-400 mb-4">🔰 پلن‌های ۲ ماهه</h3><p class="text-gray-400">صرفه‌جویی بیشتر با پلن‌های دو ماهه</p></div><div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"><div class="glass-card pricing-card p-4 text-center" data-price="25000"><div class="text-2xl mb-2">📱</div><h4 class="font-bold mb-1 text-lime-400">+۱۰GB</h4><div class="text-xl font-bold text-white mb-2">۲۵ ت</div><button class="btn-primary w-full text-sm py-2" onclick="selectPlan('2ماهه 10GB', '25000')">انتخاب</button></div><div class="glass-card pricing-card p-4 text-center" data-price="37000"><div class="text-2xl mb-2">💻</div><h4 class="font-bold mb-1 text-lime-400">+۲۰GB</h4><div class="text-xl font-bold text-white mb-2">۳۷ ت</div><button class="btn-primary w-full text-sm py-2" onclick="selectPlan('2ماهه 20GB', '37000')">انتخاب</button></div><div class="glass-card pricing-card p-4 text-center featured" data-price="55000"><div class="text-2xl mb-2">🎮</div><h4 class="font-bold mb-1 text-lime-400">+۳۰GB</h4><div class="text-xl font-bold text-white mb-2">۵۵ ت</div><button class="btn-primary w-full text-sm py-2" onclick="selectPlan('2ماهه 30GB', '55000')">انتخاب</button></div><div class="glass-card pricing-card p-4 text-center" data-price="60000"><div class="text-2xl mb-2">🚀</div><h4 class="font-bold mb-1 text-lime-400">+۴۵GB</h4><div class="text-xl font-bold text-white mb-2">۶۰ ت</div><button class="btn-primary w-full text-sm py-2" onclick="selectPlan('2ماهه 45GB', '60000')">انتخاب</button></div><div class="glass-card pricing-card p-4 text-center" data-price="75000"><div class="text-2xl mb-2">⭐</div><h4 class="font-bold mb-1 text-lime-400">+۵۰GB</h4><div class="text-xl font-bold text-white mb-2">۷۵ ت</div><button class="btn-primary w-full text-sm py-2" onclick="selectPlan('2ماهه 50GB', '75000')">انتخاب</button></div><div class="glass-card pricing-card p-4 text-center" data-price="97000"><div class="text-2xl mb-2">💎</div><h4 class="font-bold mb-1 text-lime-400">+۶۰GB</h4><div class="text-xl font-bold text-white mb-2">۹۷ ت</div><button class="btn-primary w-full text-sm py-2" onclick="selectPlan('2ماهه 60GB', '97000')">انتخاب</button></div><div class="glass-card pricing-card p-4 text-center" data-price="112000"><div class="text-2xl mb-2">🔥</div><h4 class="font-bold mb-1 text-lime-400">+۸۰GB</h4><div class="text-xl font-bold text-white mb-2">۱۱۲ ت</div><button class="btn-primary w-full text-sm py-2" onclick="selectPlan('2ماهه 80GB', '112000')">انتخاب</button></div><div class="glass-card pricing-card p-4 text-center" data-price="160000"><div class="text-2xl mb-2">👑</div><h4 class="font-bold mb-1 text-lime-400">+۱۰۰GB</h4><div class="text-xl font-bold text-white mb-2">۱۶۰ ت</div><button class="btn-primary w-full text-sm py-2" onclick="selectPlan('2ماهه 100GB', '160000')">انتخاب</button></div><div class="glass-card pricing-card p-4 text-center" data-price="175000"><div class="text-2xl mb-2">🌟</div><h4 class="font-bold mb-1 text-lime-400">+۱۲۰GB</h4><div class="text-xl font-bold text-white mb-2">۱۷۵ ت</div><button class="btn-primary w-full text-sm py-2" onclick="selectPlan('2ماهه 120GB', '175000')">انتخاب</button></div><div class="glass-card pricing-card p-4 text-center" data-price="210000"><div class="text-2xl mb-2">💫</div><h4 class="font-bold mb-1 text-lime-400">+۱۵۰GB</h4><div class="text-xl font-bold text-white mb-2">۲۱۰ ت</div><button class="btn-primary w-full text-sm py-2" onclick="selectPlan('2ماهه 150GB', '210000')">انتخاب</button></div><div class="glass-card pricing-card p-4 text-center" data-price="255000"><div class="text-2xl mb-2">🎯</div><h4 class="font-bold mb-1 text-lime-400">+۲۰۰GB</h4><div class="text-xl font-bold text-white mb-2">۲۵۵ ت</div><button class="btn-primary w-full text-sm py-2" onclick="selectPlan('2ماهه 200GB', '255000')">انتخاب</button></div></div></div><!-- 3 Month Plans --><div class="mb-20 fade-in"><div class="text-center mb-12"><h3 class="text-3xl font-bold text-lime-400 mb-4">🔰 پلن‌های ۳ ماهه</h3><p class="text-gray-400">بهترین ارزش برای پول شما</p></div><div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto"><div class="glass-card pricing-card p-8 text-center border-glow" data-price="305000"><div class="text-5xl mb-6">🔥</div><h4 class="text-2xl font-bold mb-4 text-lime-400">+۲۰۰ گیگابایت</h4><div class="text-4xl font-bold text-white mb-6">۳۰۵ <span class="text-xl">هزار تومان</span></div><div class="text-gray-400 mb-8">مناسب استفاده سنگین و مداوم</div><button class="btn-primary w-full text-lg" onclick="selectPlan('3ماهه 200GB', '305000')">انتخاب پلن</button></div><div class="glass-card pricing-card p-8 text-center border-glow featured" data-price="405000"><div class="text-5xl mb-6">👑</div><h4 class="text-2xl font-bold mb-4 text-lime-400">+۵۰۰ گیگابایت</h4><div class="text-4xl font-bold text-white mb-6">۴۰۵ <span class="text-xl">هزار تومان</span></div><div class="text-gray-400 mb-8">حداکثر ترافیک برای کاربران حرفه‌ای</div><button class="btn-primary w-full text-lg" onclick="selectPlan('3ماهه 500GB', '405000')">انتخاب پلن</button></div></div></div><!-- VIP 1 Year Plan --><div class="fade-in"><div class="text-center mb-12"><h3 class="text-3xl font-bold text-lime-400 mb-4">💎 پلن ویژه فیلترشکن ۱ ساله — نامحدود</h3><p class="text-gray-400">تجربه‌ای بی‌نظیر با امکانات کامل</p></div><div class="max-w-4xl mx-auto"><div class="glass-card pricing-card p-10 text-center border-2 border-lime-400 pulse-glow" data-price="410000"><div class="text-6xl mb-8">💎</div><h4 class="text-3xl font-bold mb-6 gradient-text">نامحدود ۱ ساله</h4><div class="text-5xl font-bold text-white mb-8">۴۱۰,
+۰۰۰ <span class="text-2xl">تومان</span></div><div class="grid md:grid-cols-2 gap-6 text-right mb-10"><div class="space-y-4"><div class="flex items-center"><i class="fas fa-infinity text-lime-400 ml-4 text-xl"></i><span class="text-lg">🔻 حجم مصرفی: نامحدود</span></div><div class="flex items-center"><i class="fas fa-tachometer-alt text-lime-400 ml-4 text-xl"></i><span class="text-lg">⚡ پینگ: بین ۱۲۰ تا ۲۰۰</span></div><div class="flex items-center"><i class="fas fa-calendar text-lime-400 ml-4 text-xl"></i><span class="text-lg">🏪 مدت زمان: ۱ ساله</span></div><div class="flex items-center"><i class="fas fa-rocket text-lime-400 ml-4 text-xl"></i><span class="text-lg">🔐 سرعت دانلود و آپلود بالا</span></div><div class="flex items-center"><i class="fas fa-map-marker-alt text-lime-400 ml-4 text-xl"></i><span class="text-lg">👨‍💻 لوکیشن: 🇩🇪 آلمان (IP ثابت)</span></div></div><div class="space-y-4"><div class="flex items-center"><i class="fas fa-wifi text-lime-400 ml-4 text-xl"></i><span class="text-lg">🛜 سازگار با تمام اپراتورها</span></div><div class="flex items-center"><i class="fas fa-desktop text-lime-400 ml-4 text-xl"></i><span class="text-lg">🚨 سازگار با تمام سیستم‌عامل‌ها</span></div><div class="flex items-center"><i class="fas fa-globe text-lime-400 ml-4 text-xl"></i><span class="text-lg">🚨 باز کردن تمام سایت‌ها و اپلیکیشن‌ها</span></div><div class="flex items-center"><i class="fas fa-server text-lime-400 ml-4 text-xl"></i><span class="text-lg">🖥 تعداد سرورها: ۸ سرور با IP متفاوت</span></div><div class="flex items-center"><i class="fas fa-headset text-lime-400 ml-4 text-xl"></i><span class="text-lg">🕒 پشتیبانی ۲۴ ساعته فعال 😌</span></div></div></div><div class="glass-card p-6 mb-8 bg-lime-400/10 border-lime-400/30"><div class="text-lime-400 font-bold text-lg mb-2">💬 نکته مهم:</div><p class="text-gray-300">نگران قطعی نباشید؛ اگر قطع شد، ۲ برابرش با ما! 🔥</p></div><button class="btn-primary w-full text-2xl py-4" onclick="selectPlan('VIP 1ساله نامحدود', '410000')"><i class="fas fa-crown ml-3"></i>انتخاب پلن VIP </button></div></div></div></div></section><!-- END PRICING PLANS SECTION --><!-- BEGIN FEATURES SECTION --><!-- 🎯 تغییر ویژگی‌ها: آیکون‌ها و متن‌های ویژگی‌ها را ویرایش کنید --><section id="features" class="py-24 relative"><div class="absolute inset-0 bg-gradient-to-b from-slate-900/50 to-transparent"></div><div class="container mx-auto px-6 relative z-10"><div class="text-center mb-20 fade-in"><h2 class="text-5xl font-bold mb-8 gradient-text neon-glow">چرا Zefro Shop؟ </h2><p class="text-2xl text-gray-300">ویژگی‌هایی که ما را در صدر قرار می‌دهد ✨ </p></div><div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8"><div class="glass-card p-8 text-center fade-in scale-in border-glow"><div class="text-6xl mb-8 floating">🚀</div><h3 class="text-2xl font-bold mb-6 text-lime-400 neon-glow">سرعت عالی</h3><p class="text-gray-300 leading-relaxed">سرورهای پرسرعت با کمترین تاخیر برای بهترین تجربه گیمینگ و استریم. پینگ پایین تضمینی! </p></div><div class="glass-card p-8 text-center fade-in scale-in border-glow" style="animation-delay: 0.1s;"><div class="text-6xl mb-8 floating-delayed">🔒</div><h3 class="text-2xl font-bold mb-6 text-lime-400 neon-glow">امنیت و پایداری</h3><p class="text-gray-300 leading-relaxed">رمزگذاری قوی و سرورهای پایدار برای حفاظت کامل از اطلاعات شما. امنیت در سطح بانکی! </p></div><div class="glass-card p-8 text-center fade-in scale-in border-glow" style="animation-delay: 0.2s;"><div class="text-6xl mb-8 floating-slow">🛠</div><h3 class="text-2xl font-bold mb-6 text-lime-400 neon-glow">نصب آسان</h3><p class="text-gray-300 leading-relaxed">راه‌اندازی در کمتر از ۵ دقیقه با راهنمای کامل و پشتیبانی مستقیم. بدون نیاز به دانش فنی! </p></div><div class="glass-card p-8 text-center fade-in scale-in border-glow" style="animation-delay: 0.3s;"><div class="text-6xl mb-8 floating">💬</div><h3 class="text-2xl font-bold mb-6 text-lime-400 neon-glow">پشتیبانی ۲۴/۷</h3><p class="text-gray-300 leading-relaxed">تیم پشتیبانی حرفه‌ای آماده کمک به شما در هر ساعت از شبانه‌روز. پاسخ در کمتر از ۱۰ دقیقه! </p></div></div></div></section><!-- END FEATURES SECTION --><!-- BEGIN HOW IT WORKS SECTION --><!-- 📋 تغییر مراحل کار: متن‌های مراحل را در div های step ویرایش کنید --><section class="py-24"><div class="container mx-auto px-6"><div class="text-center mb-20 fade-in"><h2 class="text-5xl font-bold mb-8 gradient-text neon-glow">چطور کار می‌کنه؟ </h2><p class="text-2xl text-gray-300">فقط ۴ قدم تا اینترنت بی‌دردسر 🎯 </p></div><div class="max-w-6xl mx-auto"><div class="grid md:grid-cols-4 gap-8"><div class="text-center fade-in relative"><div class="relative mb-8"><div class="w-20 h-20 bg-gradient-to-br from-lime-400 to-lime-600 text-gray-900 rounded-full flex items-center justify-center text-3xl font-bold mx-auto pulse-glow">۱ </div><div class="absolute -top-2 -right-2 w-6 h-6 bg-cyan-400 rounded-full animate-ping"></div></div><h3 class="text-xl font-bold mb-4 text-lime-400">انتخاب پلن</h3><p class="text-gray-300 text-sm leading-relaxed">پلن مناسب خودت رو از بین گزینه‌های مختلف انتخاب کن و سفارش بده</p></div><div class="text-center fade-in relative" style="animation-delay: 0.1s;"><div class="relative mb-8"><div class="w-20 h-20 bg-gradient-to-br from-lime-400 to-lime-600 text-gray-900 rounded-full flex items-center justify-center text-3xl font-bold mx-auto pulse-glow">۲ </div><div class="absolute -top-2 -right-2 w-6 h-6 bg-purple-400 rounded-full animate-ping" style="animation-delay: 0.5s;"></div></div><h3 class="text-xl font-bold mb-4 text-lime-400">دریافت کانفیگ</h3><p class="text-gray-300 text-sm leading-relaxed">بعد از پرداخت، کانفیگ اختصاصی و راهنمای نصب رو دریافت می‌کنی</p></div><div class="text-center fade-in relative" style="animation-delay: 0.2s;"><div class="relative mb-8"><div class="w-20 h-20 bg-gradient-to-br from-lime-400 to-lime-600 text-gray-900 rounded-full flex items-center justify-center text-3xl font-bold mx-auto pulse-glow">۳ </div><div class="absolute -top-2 -right-2 w-6 h-6 bg-pink-400 rounded-full animate-ping" style="animation-delay: 1s;"></div></div><h3 class="text-xl font-bold mb-4 text-lime-400">اتصال یک‌کلیکی</h3><p class="text-gray-300 text-sm leading-relaxed">با یک کلیک به سرور متصل شو و از اینترنت آزاد و پرسرعت لذت ببر</p></div><div class="text-center fade-in relative" style="animation-delay: 0.3s;"><div class="relative mb-8"><div class="w-20 h-20 bg-gradient-to-br from-lime-400 to-lime-600 text-gray-900 rounded-full flex items-center justify-center text-3xl font-bold mx-auto pulse-glow">۴ </div><div class="absolute -top-2 -right-2 w-6 h-6 bg-yellow-400 rounded-full animate-ping" style="animation-delay: 1.5s;"></div></div><h3 class="text-xl font-bold mb-4 text-lime-400">لذت اینترنت بی‌دردسر</h3><p class="text-gray-300 text-sm leading-relaxed">گیم بازی کن، فیلم ببین، کار کن - همه چیز روان، سریع و بدون محدودیت</p></div></div></div></div></section><!-- END HOW IT WORKS SECTION --><!-- BEGIN WHY ZEFRO SECTION --><!-- 🏆 تغییر مزایا: متن‌های مزایا را در div های benefit ویرایش کنید --><section class="py-24 relative"><div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div><div class="container mx-auto px-6 relative z-10"><div class="text-center mb-20 fade-in"><h2 class="text-5xl font-bold mb-8 gradient-text neon-glow">چرا Zefro؟ </h2><p class="text-2xl text-gray-300">دلایل انتخاب ما توسط هزاران کاربر 🌟 </p></div><div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8"><div class="glass-card p-8 text-center fade-in border-glow"><div class="text-5xl mb-6 floating">⚡</div><h3 class="text-xl font-bold mb-4 text-lime-400">کیفیت پایدار</h3><p class="text-gray-300 text-sm leading-relaxed">سرورهای قدرتمند با آپتایم ۹۹.۹٪ و پشتیبانی از آخرین تکنولوژی‌ها</p></div><div class="glass-card p-8 text-center fade-in border-glow" style="animation-delay: 0.1s;"><div class="text-5xl mb-6 floating-delayed">💰</div><h3 class="text-xl font-bold mb-4 text-lime-400">قیمت منصفانه</h3><p class="text-gray-300 text-sm leading-relaxed">بهترین قیمت در بازار با کیفیت بالا و امکانات کامل بدون هزینه مخفی</p></div><div class="glass-card p-8 text-center fade-in border-glow" style="animation-delay: 0.2s;"><div class="text-5xl mb-6 floating-slow">🎨</div><h3 class="text-xl font-bold mb-4 text-lime-400">طراحی مدرن</h3><p class="text-gray-300 text-sm leading-relaxed">رابط کاربری ساده، زیبا و کاربرپسند با تجربه‌ای بی‌نظیر</p></div><div class="glass-card p-8 text-center fade-in border-glow" style="animation-delay: 0.3s;"><div class="text-5xl mb-6 floating">🤝</div><h3 class="text-xl font-bold mb-4 text-lime-400">پشتیبانی واقعی</h3><p class="text-gray-300 text-sm leading-relaxed">تیم متخصص و پاسخگوی سریع با حل مشکلات در کمترین زمان</p></div></div></div></section><!-- END WHY ZEFRO SECTION --><!-- BEGIN TESTIMONIALS SECTION --><!-- 💬 تغییر نظرات: متن‌های نظرات کاربران را ویرایش کنید --><section class="py-24"><div class="container mx-auto px-6"><div class="text-center mb-20 fade-in"><h2 class="text-5xl font-bold mb-8 gradient-text neon-glow">نظرات کاربران </h2><p class="text-2xl text-gray-300">تجربه واقعی کاربران راضی ما 💝 </p></div><div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"><div class="glass-card p-8 fade-in border-glow"><div class="flex items-center mb-6"><div class="w-16 h-16 bg-gradient-to-br from-lime-400 to-lime-600 rounded-full flex items-center justify-center text-gray-900 font-bold text-xl ml-4">ع </div><div><h4 class="font-bold text-lg text-lime-400">علی رضایی</h4><div class="text-yellow-400 text-lg">⭐⭐⭐⭐⭐</div></div></div><p class="text-gray-300 leading-relaxed text-lg">"برای گیم عالیه، پینگ ثابت و سرعت فوق‌العاده. دیگه مشکل لگ ندارم و راحت بازی می‌کنم! 🎮" </p></div><div class="glass-card p-8 fade-in border-glow" style="animation-delay: 0.1s;"><div class="flex items-center mb-6"><div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full flex items-center justify-center text-gray-900 font-bold text-xl ml-4">س </div><div><h4 class="font-bold text-lg text-lime-400">سارا احمدی</h4><div class="text-yellow-400 text-lg">⭐⭐⭐⭐⭐</div></div></div><p class="text-gray-300 leading-relaxed text-lg">"نصب ۵ دقیقه‌ای، پشتیبانی سریع. واقعاً راضیم از خریدم و به همه پیشنهاد می‌دم! 👌" </p></div><div class="glass-card p-8 fade-in border-glow" style="animation-delay: 0.2s;"><div class="flex items-center mb-6"><div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-gray-900 font-bold text-xl ml-4">م </div><div><h4 class="font-bold text-lg text-lime-400">محمد کریمی</h4><div class="text-yellow-400 text-lg">⭐⭐⭐⭐⭐</div></div></div><p class="text-gray-300 leading-relaxed text-lg">"یوتیوب 4K بدون بافر! سرعت واقعاً عالیه و قیمتش منصفانه. عاشق این سرویسم! 🔥" </p></div></div></div></section><!-- END TESTIMONIALS SECTION --><!-- BEGIN FAQ SECTION --><!-- ❓ تغییر سوالات: سوال و جواب‌ها را در div های faq-item ویرایش کنید --><section id="faq" class="py-24 relative"><div class="absolute inset-0 bg-gradient-to-b from-slate-900/50 to-transparent"></div><div class="container mx-auto px-6 relative z-10"><div class="text-center mb-20 fade-in"><h2 class="text-5xl font-bold mb-8 gradient-text neon-glow">سوالات متداول </h2><p class="text-2xl text-gray-300">پاسخ سوالات رایج شما 🤔 </p></div><div class="max-w-4xl mx-auto space-y-6"><div class="faq-item glass-card fade-in border-glow"><button class="faq-question w-full text-right p-8 font-bold text-lime-400 text-xl flex items-center justify-between hover:text-white transition-colors"><span>روی گوشی کار می‌کنه؟</span><i class="fas fa-chevron-down transition-transform text-2xl"></i></button><div class="faq-content"><div class="p-8 pt-0 text-gray-300 text-lg leading-relaxed">بله، روی تمام دستگاه‌ها شامل اندروید، iOS، ویندوز، مک و لینوکس کار می‌کنه. راهنمای نصب برای هر پلتفرم ارائه می‌دیم. </div></div></div><div class="faq-item glass-card fade-in border-glow" style="animation-delay: 0.1s;"><button class="faq-question w-full text-right p-8 font-bold text-lime-400 text-xl flex items-center justify-between hover:text-white transition-colors"><span>تمدید چگونه انجام می‌شود؟</span><i class="fas fa-chevron-down transition-transform text-2xl"></i></button><div class="faq-content"><div class="p-8 pt-0 text-gray-300 text-lg leading-relaxed">از طریق دیسکورد یا تلگرام با ما تماس بگیرید. تمدید خودکار هم داریم که قبل از اتمام اشتراک بهتون اطلاع می‌دیم. </div></div></div><div class="faq-item glass-card fade-in border-glow" style="animation-delay: 0.2s;"><button class="faq-question w-full text-right p-8 font-bold text-lime-400 text-xl flex items-center justify-between hover:text-white transition-colors"><span>چند دستگاه همزمان می‌تونم استفاده کنم؟</span><i class="fas fa-chevron-down transition-transform text-2xl"></i></button><div class="faq-content"><div class="p-8 pt-0 text-gray-300 text-lg leading-relaxed">بسته به پلن انتخابی، از ۱ تا ۵ دستگاه همزمان قابل استفاده است. پلن‌های بالاتر امکان اتصال بیشتری دارند. </div></div></div><div class="faq-item glass-card fade-in border-glow" style="animation-delay: 0.3s;"><button class="faq-question w-full text-right p-8 font-bold text-lime-400 text-xl flex items-center justify-between hover:text-white transition-colors"><span>سرعت اینترنت کم می‌شه؟</span><i class="fas fa-chevron-down transition-transform text-2xl"></i></button><div class="faq-content"><div class="p-8 pt-0 text-gray-300 text-lg leading-relaxed">خیر، سرورهای پرسرعت ما حداقل کاهش سرعت رو داریم. حتی ممکنه سرعت بیشتر بشه! سرورهای ما در بهترین دیتاسنترهای دنیا قرار دارند. </div></div></div><div class="faq-item glass-card fade-in border-glow" style="animation-delay: 0.4s;"><button class="faq-question w-full text-right p-8 font-bold text-lime-400 text-xl flex items-center justify-between hover:text-white transition-colors"><span>پشتیبانی چقدر سریعه؟</span><i class="fas fa-chevron-down transition-transform text-2xl"></i></button><div class="faq-content"><div class="p-8 pt-0 text-gray-300 text-lg leading-relaxed">معمولاً کمتر از ۱۰ دقیقه پاسخ می‌دیم. پشتیبانی ۲۴ ساعته داریم و تیم متخصص ما همیشه آماده کمک هستند. </div></div></div><div class="faq-item glass-card fade-in border-glow" style="animation-delay: 0.5s;"><button class="faq-question w-full text-right p-8 font-bold text-lime-400 text-xl flex items-center justify-between hover:text-white transition-colors"><span>برای گیمینگ مناسبه؟</span><i class="fas fa-chevron-down transition-transform text-2xl"></i></button><div class="faq-content"><div class="p-8 pt-0 text-gray-300 text-lg leading-relaxed">بله، سرورهای مخصوص گیمینگ با پینگ پایین داریم. برای بازی‌های آنلاین عالیه و لگ نخواهید داشت. </div></div></div><div class="faq-item glass-card fade-in border-glow" style="animation-delay: 0.6s;"><button class="faq-question w-full text-right p-8 font-bold text-lime-400 text-xl flex items-center justify-between hover:text-white transition-colors"><span>نصب سخته؟</span><i class="fas fa-chevron-down transition-transform text-2xl"></i></button><div class="faq-content"><div class="p-8 pt-0 text-gray-300 text-lg leading-relaxed">نه، فقط یک اپ نصب می‌کنید و کانفیگ رو کپی می‌کنید. راهنمای تصویری کامل و ویدیو آموزشی هم داریم. </div></div></div><div class="faq-item glass-card fade-in border-glow" style="animation-delay: 0.7s;"><button class="faq-question w-full text-right p-8 font-bold text-lime-400 text-xl flex items-center justify-between hover:text-white transition-colors"><span>امنیت چطوره؟</span><i class="fas fa-chevron-down transition-transform text-2xl"></i></button><div class="faq-content"><div class="p-8 pt-0 text-gray-300 text-lg leading-relaxed">رمزگذاری قوی و پروتکل‌های امن استفاده می‌کنیم. اطلاعات شما کاملاً محفوظه و هیچ لاگی نگه نمی‌داریم. </div></div></div></div></div></section><!-- END FAQ SECTION --><!-- BEGIN CONTACT SECTION --><!-- 📞 تغییر اطلاعات تماس: لینک‌ها و متن‌های تماس را ویرایش کنید --><section id="contact" class="py-24"><div class="container mx-auto px-6"><div class="text-center mb-20 fade-in"><h2 class="text-5xl font-bold mb-8 gradient-text neon-glow">تماس و پشتیبانی </h2><p class="text-2xl text-gray-300">آماده کمک به شما هستیم 🤝 </p></div><div class="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto"><!-- Contact Methods Enhanced --><div class="space-y-8 fade-in"><!-- 🔗 تغییر لینک دیسکورد: DISCORD_INVITE_URL را جایگزین کنید --><div class="glass-card p-8 border-glow"><div class="flex items-center mb-6"><div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-full flex items-center justify-center text-white ml-6 pulse-glow"><i class="fab fa-discord text-2xl"></i></div><div><h4 class="font-bold text-lime-400 text-xl">دیسکورد</h4><p class="text-gray-300">سفارش و پشتیبانی سریع</p></div></div><button onclick="window.open('DISCORD_INVITE_URL', '_blank')" class="btn-primary w-full text-lg"><i class="fab fa-discord ml-3 text-xl"></i>ورود به دیسکورد </button></div><!-- 🔗 تغییر لینک تلگرام: TELEGRAM_BOT_URL را جایگزین کنید --><div class="glass-card p-8 border-glow"><div class="flex items-center mb-6"><div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center text-white ml-6 pulse-glow"><i class="fab fa-telegram text-2xl"></i></div><div><h4 class="font-bold text-lime-400 text-xl">تلگرام</h4><p class="text-gray-300">پشتیبانی ۲۴ ساعته</p></div></div><button onclick="window.open('TELEGRAM_BOT_URL', '_blank')" class="btn-secondary w-full text-lg"><i class="fab fa-telegram ml-3 text-xl"></i>ارسال پیام </button></div><div class="glass-card p-8 border-glow"><h4 class="font-bold text-lime-400 text-xl mb-6">ساعات پشتیبانی</h4><div class="space-y-4 text-gray-300"><div class="flex justify-between items-center p-3 bg-lime-400/10 rounded-lg"><span class="font-medium">شنبه تا پنج‌شنبه:</span><span class="text-lime-400 font-bold">۹:۰۰ - ۲۴:۰۰</span></div><div class="flex justify-between items-center p-3 bg-lime-400/10 rounded-lg"><span class="font-medium">جمعه:</span><span class="text-lime-400 font-bold">۱۴:۰۰ - ۲۴:۰۰</span></div><div class="text-center p-4 bg-gradient-to-r from-lime-400/20 to-cyan-400/20 rounded-lg border border-lime-400/30"><div class="text-lime-400 font-bold text-lg">⚡ پشتیبانی اورژانسی ۲۴/۷</div><div class="text-sm text-gray-400 mt-1">برای مشکلات فوری همیشه در دسترس</div></div></div></div></div><!-- Enhanced Contact Form --><div class="fade-in" style="animation-delay: 0.2s;"><div class="glass-card p-10 border-glow"><h3 class="text-3xl font-bold mb-8 text-lime-400 neon-glow">فرم تماس</h3><form id="contact-form" class="space-y-8"><div><label class="block text-lg font-medium mb-3 text-gray-300">نام شما</label><input type="text" name="name" required class="w-full px-6 py-4 bg-gray-700/50 border-2 border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-lime-400 transition-all duration-300 text-lg" placeholder="نام خود را وارد کنید"></div><div><label class="block text-lg font-medium mb-3 text-gray-300">ایمیل</label><input type="email" name="email" required class="w-full px-6 py-4 bg-gray-700/50 border-2 border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-lime-400 transition-all duration-300 text-lg" placeholder="ایمیل خود را وارد کنید"></div><div><label class="block text-lg font-medium mb-3 text-gray-300">پلن مورد نظر</label><select name="plan" class="w-full px-6 py-4 bg-gray-700/50 border-2 border-gray-600 rounded-xl text-white focus:outline-none focus:border-lime-400 transition-all duration-300 text-lg"><option value="">انتخاب کنید</option><option value="1month">پلن ۱ ماهه</option><option value="2month">پلن ۲ ماهه</option><option value="3month">پلن ۳ ماهه</option><option value="vip">پلن VIP ۱ ساله</option></select></div><div><label class="block text-lg font-medium mb-3 text-gray-300">پیام</label><textarea name="message" rows="5" required class="w-full px-6 py-4 bg-gray-700/50 border-2 border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-lime-400 transition-all duration-300 text-lg resize-none" placeholder="پیام خود را بنویسید"></textarea></div><button type="submit" class="btn-primary w-full text-xl py-4"><i class="fas fa-paper-plane ml-3"></i>ارسال پیام </button></form></div></div></div></div></section><!-- END CONTACT SECTION --><!-- BEGIN FOOTER SECTION --><!-- 🔗 تغییر فوتر: لینک‌ها و متن‌های فوتر را ویرایش کنید --><footer class="bg-gradient-to-t from-slate-900 to-slate-800 py-20 relative"><div class="absolute inset-0 bg-gradient-to-br from-lime-400/5 to-cyan-400/5"></div><div class="container mx-auto px-6 relative z-10"><div class="grid md:grid-cols-4 gap-12 mb-16"><div><div class="text-3xl font-bold gradient-text mb-6 neon-glow">🌟 Zefro Shop </div><p class="text-gray-400 mb-8 leading-relaxed">اینترنت VIP با V2Ray - سرعت، امنیت و پایداری یکجا برای تجربه‌ای بی‌نظیر </p><div class="flex space-x-6 space-x-reverse"><button onclick="window.open('DISCORD_INVITE_URL', '_blank')" class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-full flex items-center justify-center hover:scale-110 transition-transform pulse-glow"><i class="fab fa-discord text-white text-xl"></i></button><button onclick="window.open('TELEGRAM_BOT_URL', '_blank')" class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center hover:scale-110 transition-transform pulse-glow"><i class="fab fa-telegram text-white text-xl"></i></button></div></div><div><h4 class="font-bold mb-6 text-lime-400 text-xl">خدمات</h4><ul class="space-y-3 text-gray-400"><li><a href="#pricing" class="hover:text-lime-400 transition-colors hover:mr-2 duration-300">پلن‌های اشتراک</a></li><li><a href="#features" class="hover:text-lime-400 transition-colors hover:mr-2 duration-300">ویژگی‌ها</a></li><li><a href="#" class="hover:text-lime-400 transition-colors hover:mr-2 duration-300">راهنمای نصب</a></li><li><a href="#contact" class="hover:text-lime-400 transition-colors hover:mr-2 duration-300">پشتیبانی</a></li></ul></div><div><h4 class="font-bold mb-6 text-lime-400 text-xl">شرکت</h4><ul class="space-y-3 text-gray-400"><li><a href="#" class="hover:text-lime-400 transition-colors hover:mr-2 duration-300">درباره ما</a></li><li><a href="#" class="hover:text-lime-400 transition-colors hover:mr-2 duration-300">قوانین</a></li><li><a href="#" class="hover:text-lime-400 transition-colors hover:mr-2 duration-300">حریم خصوصی</a></li><li><a href="#" class="hover:text-lime-400 transition-colors hover:mr-2 duration-300">بازگشت وجه</a></li></ul></div><div><h4 class="font-bold mb-6 text-lime-400 text-xl">تماس سریع</h4><div class="space-y-4"><button onclick="window.open('DISCORD_INVITE_URL', '_blank')" class="w-full btn-primary text-lg py-3"><i class="fab fa-discord ml-2"></i>دیسکورد </button><button onclick="window.open('TELEGRAM_BOT_URL', '_blank')" class="w-full btn-secondary text-lg py-3"><i class="fab fa-telegram ml-2"></i>تلگرام </button></div></div></div><div class="border-t border-gray-700 pt-8 text-center"><p class="text-gray-400 text-lg">© ۲۰۲۴ Zefro Shop — همه حقوق محفوظ است ✨ </p></div></div></footer><!-- END FOOTER SECTION --><!-- Enhanced Back to Top Button --><button id="back-to-top" class="fixed bottom-8 left-8 w-14 h-14 bg-gradient-to-br from-lime-400 to-lime-600 text-gray-900 rounded-full shadow-2xl hover:shadow-lime-400/50 transition-all transform hover:scale-110 opacity-0 invisible z-50 pulse-glow"><i class="fas fa-arrow-up text-xl"></i></button><!-- Enhanced Success Toast --><div id="success-toast" class="fixed top-8 right-8 bg-gradient-to-r from-lime-400 to-lime-500 text-gray-900 px-8 py-6 rounded-2xl shadow-2xl transform translate-x-full transition-transform z-50 border-2 border-lime-300"><div class="flex items-center"><i class="fas fa-check-circle ml-4 text-2xl"></i><span class="font-bold text-lg">پیام شما با موفقیت ارسال شد! 🎉</span></div></div><script>
+/*
+        ========================================
+        🔧 WEBHOOK CONFIGURATION - تنظیمات وب‌هوک
+        ========================================
+        
+        🔗 تغییر URL های وب‌هوک:
+        1. DISCORD_WEBHOOK_URL: URL وب‌هوک دیسکورد
+        2. TELEGRAM_BOT_TOKEN: توکن ربات تلگرام  
+        3. TELEGRAM_CHAT_ID: شناسه چت تلگرام
+        */
+
+const DISCORD_WEBHOOK_URL='YOUR_DISCORD_WEBHOOK_URL_HERE';
+const TELEGRAM_BOT_TOKEN='YOUR_TELEGRAM_BOT_TOKEN_HERE';
+const TELEGRAM_CHAT_ID='YOUR_TELEGRAM_CHAT_ID_HERE';
+// 🎭 Enhanced Particle System
+function createParticles() {
+    const particlesContainer=document.getElementById('particles');
+    const particleCount=50;
+    for (let i=0;
+    i < particleCount;
+    i++) {
+        const particle=document.createElement('div');
+        particle.className='particle';
+        particle.style.left=Math.random() * 100+'%';
+        particle.style.animationDelay=Math.random() * 8+'s';
+        particle.style.animationDuration=(Math.random() * 3+5)+'s';
+        particlesContainer.appendChild(particle);
+    }
+}
+
+// 📱 Mobile Menu Toggle Enhanced
+document.getElementById('mobile-menu-btn').addEventListener('click',
+()=> {
+    const mobileMenu=document.getElementById('mobile-menu');
+    const btn=document.getElementById('mobile-menu-btn');
+    mobileMenu.classList.toggle('hidden');
+    btn.innerHTML=mobileMenu.classList.contains('hidden') ? '<i class="fas fa-bars"></i>': '<i class="fas fa-times"></i>';
+}
+
+);
+// 🌊 Enhanced Smooth Scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor=> {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target=document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView( {
+                behavior: 'smooth', block: 'start'
+            }
+            );
+            // Close mobile menu if open
+            const mobileMenu=document.getElementById('mobile-menu');
+            const btn=document.getElementById('mobile-menu-btn');
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                btn.innerHTML='<i class="fas fa-bars"></i>';
+            }
+        }
+    }
+    );
+}
+
+);
+// ✨ Enhanced Scroll Animations
+function revealOnScroll() {
+    const reveals=document.querySelectorAll('.fade-in, .slide-in-right, .slide-in-left, .scale-in');
+    reveals.forEach(element=> {
+        const elementTop=element.getBoundingClientRect().top;
+        const elementVisible=100;
+        if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('visible');
+        }
+    }
+    );
+}
+
+// 🎯 Enhanced Back to Top Button
+const backToTopBtn=document.getElementById('back-to-top');
+window.addEventListener('scroll',
+()=> {
+    if (window.scrollY > 500) {
+        backToTopBtn.classList.remove('opacity-0', 'invisible');
+        backToTopBtn.classList.add('opacity-100', 'visible');
+    }
+    else {
+        backToTopBtn.classList.add('opacity-0', 'invisible');
+        backToTopBtn.classList.remove('opacity-100', 'visible');
+    }
+    revealOnScroll();
+}
+
+);
+backToTopBtn.addEventListener('click',
+()=> {
+    window.scrollTo( {
+        top: 0, behavior: 'smooth'
+    }
+    );
+}
+
+);
+// 🎪 Enhanced FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(question=> {
+    question.addEventListener('click', ()=> {
+        const faqItem=question.parentElement;
+        const content=faqItem.querySelector('.faq-content');
+        const icon=question.querySelector('i');
+        // Close all other FAQ items
+        document.querySelectorAll('.faq-item').forEach(item=> {
+            if (item !==faqItem) {
+                item.querySelector('.faq-content').classList.remove('active');
+                item.querySelector('i').style.transform='rotate(0deg)';
+            }
+        }
+        );
+        // Toggle current FAQ item
+        content.classList.toggle('active');
+        if (content.classList.contains('active')) {
+            icon.style.transform='rotate(180deg)';
+        }
+        else {
+            icon.style.transform='rotate(0deg)';
+        }
+    }
+    );
+}
+
+);
+// 💎 Enhanced Plan Selection Function
+function selectPlan(planName,
+price) {
+    // Store selected plan in localStorage
+    localStorage.setItem('selectedPlan',
+    planName);
+    localStorage.setItem('selectedPrice',
+    price);
+    // Enhanced confirmation with better styling
+    const formattedPrice=parseInt(price).toLocaleString();
+    const confirmMessage=`✨ پلن "${planName}" انتخاب شد\n💰 قیمت: $ {
+        formattedPrice
+    }
+    تومان\n\n🚀 برای ادامه خرید و دریافت کانفیگ به دیسکورد مراجعه کنید.`;
+    if (confirm(confirmMessage)) {
+        // Add visual feedback
+        const button=event.target;
+        const originalText=button.innerHTML;
+        button.innerHTML='<i class="fas fa-check ml-2"></i>انتخاب شد!';
+        button.style.background='linear-gradient(135deg, #22c55e, #16a34a)';
+        setTimeout(()=> {
+            button.innerHTML=originalText;
+            button.style.background='';
+        }
+        ,
+        2000);
+        // Redirect to Discord
+        window.open('DISCORD_INVITE_URL',
+        '_blank');
+    }
+}
+
+// 📧 Enhanced Contact Form Submission with Webhook
+document.getElementById('contact-form').addEventListener('submit',
+async (e)=> {
+    e.preventDefault();
+    const formData=new FormData(e.target);
+    const data= {
+        name: formData.get('name'), email: formData.get('email'), plan: formData.get('plan'), message: formData.get('message'), timestamp: new Date().toLocaleString('fa-IR'), selectedPlan: localStorage.getItem('selectedPlan') || 'انتخاب نشده', selectedPrice: localStorage.getItem('selectedPrice') || '0'
+    }
+    ;
+    // Enhanced loading state
+    const submitBtn=e.target.querySelector('button[type="submit"]');
+    const originalText=submitBtn.innerHTML;
+    submitBtn.innerHTML='<i class="fas fa-spinner fa-spin ml-3"></i><span class="loading-dots">در حال ارسال</span>';
+    submitBtn.disabled=true;
+    submitBtn.style.background='linear-gradient(135deg, #64748b, #475569)';
+    try {
+        // Send to Discord Webhook
+        if (DISCORD_WEBHOOK_URL && DISCORD_WEBHOOK_URL !=='YOUR_DISCORD_WEBHOOK_URL_HERE') {
+            await fetch(DISCORD_WEBHOOK_URL, {
+                method: 'POST', headers: {
+                    'Content-Type': 'application/json',
+                }
+                , body: JSON.stringify( {
+                    embeds: [ {
+                        title: '🌟 پیام جدید از Zefro Shop', color: 0xA3E635, fields: [ {
+                            name: '👤 نام', value: data.name, inline: true
+                        }
+                        , {
+                            name: '📧 ایمیل', value: data.email, inline: true
+                        }
+                        , {
+                            name: '📦 پلن انتخابی', value: data.plan || 'انتخاب نشده', inline: true
+                        }
+                        , {
+                            name: '💰 پلن ذخیره شده', value: data.selectedPlan, inline: true
+                        }
+                        , {
+                            name: '💵 قیمت', value: parseInt(data.selectedPrice).toLocaleString() + ' تومان', inline: true
+                        }
+                        , {
+                            name: '💬 پیام', value: data.message, inline: false
+                        }
+                        ], timestamp: new Date().toISOString(), footer: {
+                            text: 'Zefro Shop Contact Form', icon_url: 'https://cdn-icons-png.flaticon.com/512/2111/2111646.png'
+                        }
+                        , thumbnail: {
+                            url: 'https://cdn-icons-png.flaticon.com/512/2111/2111646.png'
+                        }
+                    }
+                    ]
+                }
+                )
+            }
+            );
+        }
+        // Send to Telegram
+        if (TELEGRAM_BOT_TOKEN && TELEGRAM_BOT_TOKEN !=='YOUR_TELEGRAM_BOT_TOKEN_HERE') {
+            const telegramMessage=`🌟 *پیام جدید از Zefro Shop*\n\n👤 *نام:* $ {
+                data.name
+            }
+            \n📧 *ایمیل:* $ {
+                data.email
+            }
+            \n📦 *پلن:* $ {
+                data.plan || 'انتخاب نشده'
+            }
+            \n💰 *پلن ذخیره شده:* $ {
+                data.selectedPlan
+            }
+            \n💵 *قیمت:* $ {
+                parseInt(data.selectedPrice).toLocaleString()
+            }
+            تومان\n💬 *پیام:* $ {
+                data.message
+            }
+            \n\n⏰ *زمان:* $ {
+                data.timestamp
+            }
+            `;
+            await fetch(`https: //api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            method: 'POST', headers: {
+                'Content-Type': 'application/json',
+            }
+            , body: JSON.stringify( {
+                chat_id: TELEGRAM_CHAT_ID, text: telegramMessage, parse_mode: 'Markdown'
+            }
+            )
+        }
+        );
+    }
+    // Show enhanced success message
+    showSuccessToast();
+    e.target.reset();
+    // Clear stored plan data
+    localStorage.removeItem('selectedPlan');
+    localStorage.removeItem('selectedPrice');
+}
+
+catch (error) {
+    console.error('Error sending message:', error);
+    // Enhanced error handling
+    const errorToast=document.createElement('div');
+    errorToast.className='fixed top-8 right-8 bg-gradient-to-r from-red-500 to-red-600 text-white px-8 py-6 rounded-2xl shadow-2xl z-50 border-2 border-red-400';
+    errorToast.innerHTML=` <div class="flex items-center"><i class="fas fa-exclamation-triangle ml-4 text-2xl"></i><span class="font-bold text-lg">خطا در ارسال! لطفاً مجدداً تلاش کنید 🔄</span></div>`;
+    document.body.appendChild(errorToast);
+    setTimeout(()=> {
+        errorToast.remove();
+    }
+    , 5000);
+}
+
+finally {
+    // Reset button with enhanced animation
+    setTimeout(()=> {
+        submitBtn.innerHTML=originalText;
+        submitBtn.disabled=false;
+        submitBtn.style.background='';
+    }
+    , 1000);
+}
+
+
+}
+);
+// 🎉 Enhanced Success Toast
+function showSuccessToast() {
+    const toast=document.getElementById('success-toast');
+    toast.classList.remove('translate-x-full');
+    toast.classList.add('translate-x-0');
+    // Add confetti effect
+    createConfetti();
+    setTimeout(()=> {
+        toast.classList.add('translate-x-full');
+        toast.classList.remove('translate-x-0');
+    }
+    
+    ,
+    4000);
+}
+// 🎊 Confetti Effect
+function createConfetti() {
+    const colors=['#A3E635',
+    '#22d3ee',
+    '#8b5cf6',
+    '#f59e0b',
+    '#ef4444'];
+    const confettiCount=50;
+    for (let i=0;
+    i < confettiCount;
+    i++) {
+        const confetti=document.createElement('div');
+        confetti.style.position='fixed';
+        confetti.style.width='10px';
+        confetti.style.height='10px';
+        confetti.style.backgroundColor=colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.left=Math.random() * 100+'vw';
+        confetti.style.top='-10px';
+        confetti.style.zIndex='9999';
+        confetti.style.borderRadius='50%';
+        confetti.style.pointerEvents='none';
+        confetti.style.animation=`confetti-fall $ {
+            Math.random() * 2+2
+        }
+        s linear forwards`;
+        document.body.appendChild(confetti);
+        setTimeout(()=> {
+            confetti.remove();
+        }
+        ,
+        4000);
+    }
+}
+// Add confetti animation CSS
+const style=document.createElement('style');
+style.textContent=` @keyframes confetti-fall {
+    0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: 1;
+    }
+    
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+`;
+document.head.appendChild(style);
+// 🎨 Enhanced Navbar Scroll Effect
+window.addEventListener('scroll',
+()=> {
+    const navbar=document.querySelector('header');
+    if (window.scrollY > 100) {
+        navbar.style.background='rgba(15, 23, 42, 0.95)';
+        navbar.style.backdropFilter='blur(20px)';
+        navbar.style.borderBottom='1px solid rgba(163, 230, 53, 0.3)';
+    }
+    
+    else {
+        navbar.style.background='rgba(163, 230, 53, 0.08)';
+        navbar.style.backdropFilter='blur(20px)';
+        navbar.style.borderBottom='1px solid rgba(163, 230, 53, 0.2)';
+    }
+}
+);
+// 🚀 Initialize Enhanced Features
+document.addEventListener('DOMContentLoaded',
+()=> {
+    // Create particles
+    createParticles();
+    // Trigger initial scroll reveal
+    setTimeout(revealOnScroll, 200);
+    // Enhanced hero animation sequence
+    const heroElements=document.querySelectorAll('#home .fade-in');
+    heroElements.forEach((element, index)=> {
+        setTimeout(()=> {
+            element.classList.add('visible');
+        }
+        , index * 300);
+    }
+    
+    );
+    // Add intersection observer for better performance
+    const observer=new IntersectionObserver((entries)=> {
+        entries.forEach(entry=> {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        }
+        );
+    }
+    
+    , {
+        threshold: 0.1, rootMargin: '0px 0px -50px 0px'
+    }
+    
+    );
+    // Observe all animated elements
+    document.querySelectorAll('.fade-in, .slide-in-right, .slide-in-left, .scale-in').forEach(el=> {
+        observer.observe(el);
+    }
+    
+    );
+}
+);
+// 🎵 Add sound effects (optional)
+function playClickSound() {
+    // Create audio context for click sounds
+    const audioContext=new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator=audioContext.createOscillator();
+    const gainNode=audioContext.createGain();
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    oscillator.frequency.setValueAtTime(800,
+    audioContext.currentTime);
+    oscillator.frequency.exponentialRampToValueAtTime(400,
+    audioContext.currentTime+0.1);
+    gainNode.gain.setValueAtTime(0.1,
+    audioContext.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01,
+    audioContext.currentTime+0.1);
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime+0.1);
+}
+// Add click sound to buttons
+document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn=> {
+    btn.addEventListener('click', playClickSound);
+}
+);
+</script><script>(function() {
+    function c() {
+        var b=a.contentDocument||a.contentWindow.document;
+        if(b) {
+            var d=b.createElement('script');
+            d.innerHTML="window.__CF$cv$params={r:'9715cd9d04874d56',t:'MTc1NTU2NjE2MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName('head')[0].appendChild(d)
+        }
+    }
+    
+    if(document.body) {
+        var a=document.createElement('iframe');
+        a.height=1;
+        a.width=1;
+        a.style.position='absolute';
+        a.style.top=0;
+        a.style.left=0;
+        a.style.border='none';
+        a.style.visibility='hidden';
+        document.body.appendChild(a);
+        if('loading'!==document.readyState)c();
+        else if(window.addEventListener)document.addEventListener('DOMContentLoaded', c);
+        else {
+            var e=document.onreadystatechange||function() {}
+            ;
+            document.onreadystatechange=function(b) {
+                e(b);
+                'loading'!==document.readyState&&(document.onreadystatechange=e, c())
+            }
+        }
+    }
+}
+)();
+</script></body></html>
